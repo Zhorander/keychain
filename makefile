@@ -15,7 +15,7 @@ encrypt: encrypt.ml
 	$(FIND) $(OC) -c $@.ml $(ENC)
 
 keychain: keychain.ml database.ml encrypt.ml
-	$(FIND) $(OC) $(ENC) $(SQL) database.cmx encrypt.cmx $@.ml -o $@ -linkpkg
+	$(FIND) $(OC) -I $(GUI_LIB) $(GRAPH) $(ENC) $(SQL) buttons.cmx text_boxes.cmx database.cmx encrypt.cmx $@.ml -o $@ -linkpkg
 
 keychain_gui: keychain_gui.ml
 	$(FIND) $(OC) $(GTK) $@.ml -o $@ -linkpkg
